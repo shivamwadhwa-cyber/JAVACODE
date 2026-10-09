@@ -1,0 +1,39 @@
+
+import java.util.Scanner;
+
+class InvalidPatientAgeException extends Exception {
+    public InvalidPatientAgeException(String message) {
+        super(message);
+    }
+}
+
+public class Q12 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter patient name: ");
+            String name = sc.nextLine();
+
+            System.out.print("Enter patient age: ");
+            int age = Integer.parseInt(sc.nextLine());
+
+            if (age < 0 || age > 120) {
+                throw new InvalidPatientAgeException(
+                    "Patient age must be between 0 and 120."
+                );
+            }
+
+            System.out.println("Patient registered successfully.");
+            System.out.println("Patient name: " + name);
+            System.out.println("Patient age: " + age);
+
+        } catch (InvalidPatientAgeException e) {
+            System.out.println("Error: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Age must be a valid integer.");
+        } finally {
+            sc.close();
+        }
+    }
+}
