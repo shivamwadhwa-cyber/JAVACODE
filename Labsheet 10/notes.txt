@@ -1,3 +1,0 @@
-Java is easy to learn.
-Java is widely used for application development.
-Learning Java helps in understanding programming.
